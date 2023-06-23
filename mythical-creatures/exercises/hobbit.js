@@ -1,28 +1,28 @@
 class Hobbit {
   constructor(params) {
-    this.name = params["name"]
-    this.age = 0
-    this.adult = false
-    this.old = false
-    this.hasRing = false
+    this.name = params["name"];
+    this.age = 0;
+    this.adult = false;
+    this.old = false;
+    this.hasRing = false;
+  }
 
-    this.celebrateBirthday = function() {
-      this.age++
+  celebrateBirthday() {
+    this.age++;
 
-      if (this.age > 32 && !this.adult) {
-        this.adult = true
-      } else if (this.age > 100 && !this.old) {
-        this.old = true
-      }
+    if (this.age > 32 && !this.adult) {
+      this.adult = true;
+    } else if (this.age > 100 && !this.old) {
+      this.old = true;
     }
+  }
 
-    this.getRing = function() {
-      if (this.name == 'Frodo') {
-        this.hasRing = true
-        return 'Here is the ring!'
-      } else {
-        return "You can't have it!"
-      }
+  getRing() {
+    if (this.name == 'Frodo') {
+      this.hasRing = true;
+      return 'Here is the ring!';
+    } else {
+      return "You can't have it!";
     }
   }
 }

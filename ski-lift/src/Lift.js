@@ -6,28 +6,28 @@ class Lift {
     this.limit = maxSkiers;
     this.skiers = [];
     this.safetyBar = 'up';
+  }
 
-    this.admitSkier = function(skierName, liftTicket) {
-      const skier = new Skier(skierName, liftTicket)
-      if (liftTicket && this.limit > this.skiers.length) {
-        this.skiers.push(skier);
-        if (this.limit == this.skiers.length) {
-          this.safetyBar = 'down';
-        }
-      } else if (!liftTicket) {
-        return `Sorry, ${skierName}. You need a lift ticket!`;
-      } else {
-        return `Sorry, ${skierName}. Please wait for the next lift!`;
+  admitSkier(skierName, liftTicket) {
+    const skier = new Skier(skierName, liftTicket)
+    if (liftTicket && this.limit > this.skiers.length) {
+      this.skiers.push(skier);
+      if (this.limit == this.skiers.length) {
+        this.safetyBar = 'down';
       }
+    } else if (!liftTicket) {
+      return `Sorry, ${skierName}. You need a lift ticket!`;
+    } else {
+      return `Sorry, ${skierName}. Please wait for the next lift!`;
     }
+  }
 
-    this.startLift = function() {
-      if (this.safetyBar == 'up') {
-        var remainingSpots = this.limit - this.skiers.length;
-        var string = `We still need ${remainingSpots} more `;
-        string += remainingSpots == 1 ? 'skier!' : 'skiers!';
-        return string;
-      }
+  startLift() {
+    if (this.safetyBar == 'up') {
+      var remainingSpots = this.limit - this.skiers.length;
+      var string = `We still need ${remainingSpots} more `;
+      string += remainingSpots == 1 ? 'skier!' : 'skiers!';
+      return string;
     }
   }
 }

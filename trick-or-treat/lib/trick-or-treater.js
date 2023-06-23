@@ -4,19 +4,19 @@ class TrickOrTreater {
     this.bag = bag;
     this.hasCandy = false;
     this.countCandies = 0;
+  }
 
-    this.putCandyInBag = function(candy) {
-      this.bag.fill(candy);
-      this.hasCandy = true;
-      this.countCandies++;
-    }
+  putCandyInBag(candy) {
+    this.bag.fill(candy);
+    this.hasCandy = true;
+    this.countCandies++;
+  }
 
-    this.eat = function() {
-      this.countCandies--;
-      this.bag.candies.shift();
-      if (this.countCandies == 0) {
-        this.hasCandy = false;
-      }
+  eat() {
+    this.countCandies--;
+    this.bag.candies.shift();
+    if (this.countCandies == 0) {
+      this.hasCandy = false;
     }
   }
 }

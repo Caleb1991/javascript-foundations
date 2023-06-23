@@ -1,20 +1,20 @@
 class Dragon {
   constructor(name, rider) {
-    this.name = name
-    this.rider = rider
-    var meals = 0
-    this.hungry = true
+    this.name = name;
+    this.rider = rider;
+    this.meals = 0;
+    this.hungry = true;
+  }
 
-    this.greet = function() {
-      return `Hi, ${this.rider}!`
-    }
+  greet() {
+    return `Hi, ${this.rider}!`;
+  }
 
-    this.eat = function() {
-      meals++
+  eat() {
+    this.meals++;
 
-      if (meals >= 3) {
-        this.hungry = false
-      };
+    if (this.meals >= 3) {
+      this.hungry = false;
     }
   }
 

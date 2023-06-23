@@ -5,20 +5,20 @@ class Runner {
     this.milesRun = 0;
     this.fitness = 25;
     this.completedRaces = [];
+  }
 
-    this.runSomeMiles = function(milesRan) {
-      this.milesRun += milesRan;
-      this.fitness += milesRan;
-    }
+  runSomeMiles(milesRan) {
+    this.milesRun += milesRan;
+    this.fitness += milesRan;
+  }
 
-    this.stretch = function() {
-      this.fitness += .5;
-    }
+  stretch() {
+    this.fitness += .5;
+  }
 
-    this.runRace = function(name, miles) {
-      this.completedRaces.push(name);
-      this.runSomeMiles(miles);
-    }
+  runRace(name, miles) {
+    this.completedRaces.push(name);
+    this.runSomeMiles(miles);
   }
 }
 

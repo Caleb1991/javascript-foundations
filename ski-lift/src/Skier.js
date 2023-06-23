@@ -4,17 +4,17 @@ class Skier {
     this.hasLiftTicket = hasLiftTicket;
     this.skillLevel = 1;
     this.nextSlope = 'green circle';
+  }
 
-    this.takeLesson = function() {
-      this.skillLevel++;
-    }
+  takeLesson() {
+    this.skillLevel++;
+  }
 
-    this.pickSlope = function() {
-      if (this.skillLevel == 3) {
-        this.nextSlope = 'blue square';
-      } else if (this.skillLevel == 5) {
-        this.nextSlope = 'black diamond';
-      }
+  pickSlope() {
+    if (this.skillLevel == 3) {
+      this.nextSlope = 'blue square';
+    } else if (this.skillLevel == 5) {
+      this.nextSlope = 'black diamond';
     }
   }
 }

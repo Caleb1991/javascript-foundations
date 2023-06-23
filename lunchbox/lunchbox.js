@@ -5,22 +5,21 @@ class LunchBox {
     this.shape = params['shape'];
     this.color = params['color'];
     this.snacks = [];
+  }
 
-    this.acquireSnack = function(snack) {
-      this.snacks.push(snack);
-      snack.isInLunchBox = true;
-    }
+  acquireSnack(snack) {
+    this.snacks.push(snack);
+    snack.isInLunchBox = true;
+  }
 
-    this.findHealthySnacks = function() {
-      let tempArray = [];
-      for (const snack of this.snacks) {
-        if (snack.checkForHealthy()) {
-          tempArray.push(snack.type);
-        }
+  findHealthySnacks() {
+    let tempArray = [];
+    for (const snack of this.snacks) {
+      if (snack.checkForHealthy()) {
+        tempArray.push(snack.type);
       }
-
-      return tempArray;
     }
+    return tempArray;
   }
 }
 

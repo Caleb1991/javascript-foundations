@@ -13,46 +13,46 @@ class Ship {
     this.cargo = [];
     this.parts = params.parts ? params.parts : {};
     this.readyToFly = false;
+  }
 
-    this.addCrew = function(crewMembers) {
-      for (var crewMember of crewMembers) {
-        if (this.crew.length + 1 <= this.maxCrew && crewMember.constructor.name == 'Being'){
-          this.crew.push(crewMember);
-        }
+  addCrew(crewMembers) {
+    for (var crewMember of crewMembers) {
+      if (this.crew.length + 1 <= this.maxCrew && crewMember.constructor.name == 'Being'){
+        this.crew.push(crewMember);
       }
     }
+  }
 
-    this.loadCargo = function(cargo) {
-      if (cargo instanceof Part) {
-        this.cargo.push(cargo);
-      }
+  loadCargo(cargo) {
+    if (cargo instanceof Part) {
+      this.cargo.push(cargo);
     }
+  }
 
-    this.updatePart = function(part) {
-      var existingPart = this.parts[part.type]
-      if (existingPart) {
-        const oldValue = existingPart.value;
-        const newValue = part.value;
-        const difference = oldValue - newValue;
-        this.parts[part.type] = part;
-        return difference;
-      } else {
-        this.parts[part.type] = part;
-      }
+  updatePart(part) {
+    var existingPart = this.parts[part.type]
+    if (existingPart) {
+      const oldValue = existingPart.value;
+      const newValue = part.value;
+      const difference = oldValue - newValue;
+      this.parts[part.type] = part;
+      return difference;
+    } else {
+      this.parts[part.type] = part;
     }
+  }
 
-    this.checkReadiness = function() {
-      var string = 'Cannot fly without '
-      if (!this.captain) {
-        return string + 'a captain';
-      } else if (this.fuel == 0) {
-        return string + 'fuel'
-      } else if (Object.keys(this.parts).length == 0) {
-        return string + 'parts';
-      } else {
-        this.readyToFly = true;
-        return 'Good to go!';
-      }
+  checkReadiness() {
+    var string = 'Cannot fly without '
+    if (!this.captain) {
+      return string + 'a captain';
+    } else if (this.fuel == 0) {
+      return string + 'fuel'
+    } else if (Object.keys(this.parts).length == 0) {
+      return string + 'parts';
+    } else {
+      this.readyToFly = true;
+      return 'Good to go!';
     }
   }
 }

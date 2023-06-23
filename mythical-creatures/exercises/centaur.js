@@ -5,50 +5,50 @@ class Centaur {
     this.cranky = false;
     this.standing = true;
     this.layingDown = false;
+  }
 
-    this.shootBow = function() {
-      if (!this.cranky && this.standing) {
-        this.cranky = true;
-        return 'Twang!!!';
-      } else {
-        return 'NO!';
-      }
-    };
+  shootBow() {
+    if (!this.cranky && this.standing) {
+      this.cranky = true;
+      return 'Twang!!!';
+    } else {
+      return 'NO!';
+    }
+  };
 
-    this.run = function() {
-      if (!this.cranky && this.standing) {
-        this.cranky = true;
-        return 'Clop clop clop clop!!!';
-      } else {
-        return 'NO!';
-      }
-    };
+  run() {
+    if (!this.cranky && this.standing) {
+      this.cranky = true;
+      return 'Clop clop clop clop!!!';
+    } else {
+      return 'NO!';
+    }
+  };
 
-    this.sleep = function() {
-      if (this.standing) {
-        return 'NO!';
-      } else {
-        this.cranky = false;
-        return 'ZZZZ';
-      }
-    };
+  sleep() {
+    if (this.standing) {
+      return 'NO!';
+    } else {
+      this.cranky = false;
+      return 'ZZZZ';
+    }
+  };
 
-    this.layDown = function() {
-      this.standing = false;
-      this.layingDown = true;
-    };
+  layDown() {
+    this.standing = false;
+    this.layingDown = true;
+  };
 
-    this.standUp = function() {
-      this.standing = true;
-      this.layingDown = false;
-    };
+  standUp() {
+    this.standing = true;
+    this.layingDown = false;
+  };
 
-    this.drinkPotion = function() {
-      if (this.standing) {
-        this.cranky = false;
-      } else {
-        return "Not while I'm laying down!";
-      }
+  drinkPotion() {
+    if (this.standing) {
+      this.cranky = false;
+    } else {
+      return "Not while I'm laying down!";
     }
   }
 }

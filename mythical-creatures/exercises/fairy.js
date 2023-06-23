@@ -5,36 +5,36 @@ class Fairy {
     this.clothes = { dresses: ['Iris'] };
     this.disposition = 'Good natured';
     this.humanWards = []
+  }
 
-    this.receiveBelief = function() {
-      this.dust++;
+  receiveBelief() {
+    this.dust++;
+  }
+
+  believe() {
+    this.dust += 10;
+  }
+
+  makeDresses(dresses) {
+    for (var i = 0; i < dresses.length; i++) {
+      this.clothes['dresses'].push(dresses[i]);
     }
+  }
 
-    this.believe = function() {
-      this.dust += 10;
-    }
+  becomeProvoked() {
+    this.disposition = 'Vengeful';
+  }
 
-    this.makeDresses = function(dresses) {
-      for (var i = 0; i < dresses.length; i++) {
-        this.clothes['dresses'].push(dresses[i]);
+  replaceInfant(params) {
+    if (this.disposition == 'Vengeful') {
+      params['disposition'] = 'Malicious';
+      this.humanWards.push(params);
+      if (this.humanWards.length == 3) {
+        this.disposition = 'Good natured';
       }
-    }
-
-    this.becomeProvoked = function() {
-      this.disposition = 'Vengeful';
-    }
-
-    this.replaceInfant = function(params) {
-      if (this.disposition == 'Vengeful') {
-        params['disposition'] = 'Malicious';
-        this.humanWards.push(params);
-        if (this.humanWards.length == 3) {
-          this.disposition = 'Good natured';
-        }
-        return params;
-      } else {
-        return params;
-      }
+      return params;
+    } else {
+      return params;
     }
   }
 }

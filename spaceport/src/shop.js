@@ -4,26 +4,26 @@ class Shop {
   constructor(params) {
     this.name = params.name;
     this.inventory = {}
+  }
 
-    this.addInventory = function(item) {
-      if (item instanceof Part)
-      this.inventory[item.type] = item;
-    }
+  addInventory(item) {
+    if (item instanceof Part)
+    this.inventory[item.type] = item;
+  }
 
-    this.outfitShip = function(ship, partType) {
-      var shipCaptain = ship.captain;
-      var part = this.inventory[partType];
-      if (!shipCaptain) {
-        return 'cannot outfit a ship without a captain';
-      } else if (shipCaptain.credits < part.value) {
-        var creditDifference = part.value - shipCaptain.credits;
-        return `you require ${creditDifference} more credits to make this purchase`;
-      } else {
-        shipCaptain.credits -= part.value;
-        ship.updatePart(part);
-        delete this.inventory[partType];
-        return `${partType} added to ship`;
-      }
+  outfitShip(ship, partType) {
+    var shipCaptain = ship.captain;
+    var part = this.inventory[partType];
+    if (!shipCaptain) {
+      return 'cannot outfit a ship without a captain';
+    } else if (shipCaptain.credits < part.value) {
+      var creditDifference = part.value - shipCaptain.credits;
+      return `you require ${creditDifference} more credits to make this purchase`;
+    } else {
+      shipCaptain.credits -= part.value;
+      ship.updatePart(part);
+      delete this.inventory[partType];
+      return `${partType} added to ship`;
     }
   }
 }

@@ -4,10 +4,10 @@ class Being {
     this.species = species;
     this.isAlive = true;
     this.credits = 0;
+  }
 
-    this.updateCredits = function(amount) {
-      this.credits += amount;
-    }
+  updateCredits(amount) {
+    this.credits += amount;
   }
 }
 

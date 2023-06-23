@@ -2,10 +2,10 @@ class Ingredient {
   constructor(params) {
     this.name = params['name'];
     this.amount = params['amount'];
+  }
 
-    this.changeAmount = function(amount) {
-      this.amount = amount;
-    }
+  changeAmount(amount) {
+    this.amount = amount;
   }
 }
 
